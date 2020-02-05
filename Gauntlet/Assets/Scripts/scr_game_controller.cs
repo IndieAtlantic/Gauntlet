@@ -10,13 +10,14 @@ public class scr_game_controller : MonoBehaviour
     public int key;
     public int health;
     public int score;
-    public bool win;
+    
 
     public Text endtext;
     public Text scoretext;
     public Text healthtext;
 
     public bool pause = false;
+    public bool win = false;
 
 
     // Start is called before the first frame update
@@ -25,11 +26,12 @@ public class scr_game_controller : MonoBehaviour
         key = 0;
         health = totalhealth;
         score = 0;
-        win = false;
+        
 
         endtext.text = "";
         scoretext.text = "";
         healthtext.text = "";
+
     }
 
     // Update is called once per frame
@@ -41,12 +43,17 @@ public class scr_game_controller : MonoBehaviour
         {
             if (!pause) { pause = true; }
             else { pause = false; }
-            
+
         }
 
         if (health == 0)
         {
-            endtext.text = "You Failed, Scrub";
+            endtext.text = "You Failed";
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Application.Quit();
         }
     }
 }

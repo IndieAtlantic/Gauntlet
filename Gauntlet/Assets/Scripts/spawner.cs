@@ -33,7 +33,7 @@ public class spawner : MonoBehaviour
                     counter = spawndelay;
                 }
 
-                if (health == 0)
+                if ((health == 0) || (gc.GetComponent<scr_game_controller>().win == true))
                 {
                     gc.GetComponent<scr_game_controller>().score += 30;
                     Destroy(gameObject);
